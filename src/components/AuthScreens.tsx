@@ -317,17 +317,17 @@ export default function AuthWorkflow({
                 <button className="flex items-center gap-1 text-[#FF4D4D] font-bold text-lg font-display cursor-pointer">
                   WesAiChat <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                 </button>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-6 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Create your account 🚀
                 </h2>
-                <p className="text-slate-400 text-sm mt-1">
+                <p className="text-slate-400 dark:text-slate-450 text-sm mt-1">
                   It only takes a minute to get started.
                 </p>
               </div>
@@ -335,7 +335,7 @@ export default function AuthWorkflow({
               {/* Form Input Block */}
               <form onSubmit={handleSignUpSubmit} className="space-y-4">
                 {/* Full Name Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     Full Name
                   </label>
@@ -345,12 +345,12 @@ export default function AuthWorkflow({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your Name"
-                    className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                    className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                   />
                 </div>
 
                 {/* Email Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     Email Address
                   </label>
@@ -360,12 +360,12 @@ export default function AuthWorkflow({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter email address"
-                    className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                    className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                   />
                 </div>
 
                 {/* Password Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl relative">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl relative transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     Password
                   </label>
@@ -376,12 +376,12 @@ export default function AuthWorkflow({
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Create password"
-                      className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                      className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="text-slate-400 hover:text-slate-600 focus:outline-none"
+                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none transition-colors"
                     >
                       {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -398,11 +398,12 @@ export default function AuthWorkflow({
               </form>
 
               {/* Sign in Link */}
-              <div className="text-center text-sm text-slate-500 mt-6 font-normal">
+              <div className="text-center text-sm text-slate-500 dark:text-slate-400 mt-6 font-normal">
                 Already have an account?{" "}
                 <button
+                  type="button"
                   onClick={() => setScreen("signin")}
-                  className="text-[#FF4D4D] font-bold hover:underline"
+                  className="text-[#FF4D4D] font-bold hover:underline cursor-pointer"
                 >
                   Sign in
                 </button>
@@ -411,29 +412,29 @@ export default function AuthWorkflow({
               {/* Divider and social options */}
               <div className="my-6">
                 <div className="relative flex items-center justify-center">
-                  <div className="w-full border-t border-slate-100"></div>
-                  <span className="absolute px-3 bg-white text-slate-400 text-xs font-bold">OR</span>
+                  <div className="w-full border-t border-slate-100 dark:border-slate-800"></div>
+                  <span className="absolute px-3 bg-white dark:bg-slate-950 text-slate-400 dark:text-slate-500 text-xs font-bold transition-colors">OR</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 mt-6">
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Google")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <GoogleIcon />
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Apple")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <AppleIcon />
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Phone")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <PhoneIcon />
                   </button>
@@ -457,19 +458,19 @@ export default function AuthWorkflow({
                 <button className="flex items-center gap-1 text-[#FF4D4D] font-bold text-lg font-display cursor-pointer">
                   WesAiChat <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                 </button>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-6 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Enter Verification Code
                 </h2>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed px-4">
-                  We've sent an OTP code to <strong className="text-slate-700 font-semibold">{email}</strong> <br />
-                  <span className="text-xs text-slate-400 font-normal">(It may take a few seconds to arrive.)</span>
+                <p className="text-slate-400 dark:text-slate-400 text-sm mt-2 leading-relaxed px-4">
+                  We've sent an OTP code to <strong className="text-slate-700 dark:text-slate-300 font-semibold">{email}</strong> <br />
+                  <span className="text-xs text-slate-400 dark:text-slate-500 font-normal">(It may take a few seconds to arrive.)</span>
                 </p>
               </div>
 
@@ -489,10 +490,10 @@ export default function AuthWorkflow({
                       onFocus={() => setActiveOtpIndex(index)}
                       className={`w-16 h-16 text-center text-xl font-bold rounded-2xl border transition-all focus:outline-none ${
                         index === 0
-                          ? "bg-red-50/50 border-[#FF4D4D] text-[#FF4D4D] font-extrabold"
+                          ? "bg-red-50/50 dark:bg-red-500/10 border-[#FF4D4D] text-[#FF4D4D] font-extrabold"
                           : digit !== ""
-                          ? "bg-slate-50 border-slate-200 text-slate-800"
-                          : "bg-slate-50/70 border-slate-100 text-slate-400"
+                          ? "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100"
+                          : "bg-slate-50/70 dark:bg-slate-900/70 border-slate-100 dark:border-slate-850 text-slate-400 dark:text-slate-600"
                       }`}
                       id={`otp-box-${index}`}
                     />
@@ -509,12 +510,12 @@ export default function AuthWorkflow({
               </form>
 
               {/* Resend Code Link */}
-              <div className="text-center text-sm text-slate-500 mt-6 font-normal">
+              <div className="text-center text-sm text-slate-500 dark:text-slate-400 mt-6 font-normal">
                 Didn't get the code?{" "}
                 <button
                   type="button"
                   onClick={() => alert("Verification code resent successfully!")}
-                  className="text-[#FF4D4D] font-bold hover:underline"
+                  className="text-[#FF4D4D] font-bold hover:underline cursor-pointer"
                 >
                   Resend
                 </button>
@@ -537,23 +538,23 @@ export default function AuthWorkflow({
             >
               {/* Header */}
               <div className="flex items-center justify-between py-4">
-                <button className="p-1 text-slate-600 hover:text-slate-800 cursor-pointer">
+                <button className="p-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <LayoutGrid className="w-5 h-5" />
                 </button>
-                <span className="text-slate-900 font-extrabold text-lg font-display">
+                <span className="text-slate-900 dark:text-white font-extrabold text-lg font-display">
                   WesAiChat
                 </span>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-4 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Account Created 🎉
                 </h2>
-                <p className="text-slate-400 text-sm mt-1 px-4 leading-relaxed">
+                <p className="text-slate-400 dark:text-slate-400 text-sm mt-1 px-4 leading-relaxed">
                   Thanks for joining! Let's explore what you can do.
                 </p>
               </div>
@@ -599,17 +600,17 @@ export default function AuthWorkflow({
                 <button className="flex items-center gap-1 text-[#FF4D4D] font-bold text-lg font-display cursor-pointer">
                   WesAiChat <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                 </button>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-6 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Forgot your password?
                 </h2>
-                <p className="text-slate-400 text-sm mt-1 px-4 leading-relaxed">
+                <p className="text-slate-400 dark:text-slate-400 text-sm mt-1 px-4 leading-relaxed">
                   Enter the email linked to your account and we'll send you a reset code.
                 </p>
               </div>
@@ -617,7 +618,7 @@ export default function AuthWorkflow({
               {/* Form Input Block */}
               <form onSubmit={handleForgotSubmit} className="space-y-4">
                 {/* Email Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     Email Address
                   </label>
@@ -627,7 +628,7 @@ export default function AuthWorkflow({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                    className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                   />
                 </div>
 
@@ -641,12 +642,12 @@ export default function AuthWorkflow({
               </form>
 
               {/* Back to Sign In Link */}
-              <div className="text-center text-sm text-slate-500 mt-6 font-normal">
+              <div className="text-center text-sm text-slate-500 dark:text-slate-400 mt-6 font-normal">
                 Remember it now?{" "}
                 <button
                   type="button"
                   onClick={() => setScreen("signin")}
-                  className="text-[#FF4D4D] font-bold hover:underline"
+                  className="text-[#FF4D4D] font-bold hover:underline cursor-pointer"
                 >
                   Back to Sign In
                 </button>
@@ -655,29 +656,29 @@ export default function AuthWorkflow({
               {/* Divider and social options */}
               <div className="my-6">
                 <div className="relative flex items-center justify-center">
-                  <div className="w-full border-t border-slate-100"></div>
-                  <span className="absolute px-3 bg-white text-slate-400 text-xs font-bold">OR</span>
+                  <div className="w-full border-t border-slate-100 dark:border-slate-800"></div>
+                  <span className="absolute px-3 bg-white dark:bg-slate-950 text-slate-400 dark:text-slate-500 text-xs font-bold transition-colors">OR</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 mt-6">
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Google")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <GoogleIcon />
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Apple")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <AppleIcon />
                   </button>
                   <button
                     type="button"
                     onClick={() => handleSocialLogin("Phone")}
-                    className="flex items-center justify-center p-3.5 border border-slate-100 rounded-2xl bg-white hover:bg-slate-50 transition-colors cursor-pointer"
+                    className="flex items-center justify-center p-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   >
                     <PhoneIcon />
                   </button>
@@ -701,17 +702,17 @@ export default function AuthWorkflow({
                 <button className="flex items-center gap-1 text-[#FF4D4D] font-bold text-lg font-display cursor-pointer">
                   WesAiChat <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                 </button>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-6 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Create New Password
                 </h2>
-                <p className="text-slate-400 text-sm mt-1 px-4 leading-relaxed">
+                <p className="text-slate-400 dark:text-slate-400 text-sm mt-1 px-4 leading-relaxed">
                   Enter a new Password you will remember
                 </p>
               </div>
@@ -719,7 +720,7 @@ export default function AuthWorkflow({
               {/* Form Input Block */}
               <form onSubmit={handleResetPasswordSubmit} className="space-y-4">
                 {/* New Password Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl relative">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl relative transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     New Password
                   </label>
@@ -730,12 +731,12 @@ export default function AuthWorkflow({
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
                       placeholder="Enter new password"
-                      className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                      className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                     />
                     <button
                       type="button"
                       onClick={() => setShowNewPassword(!showNewPassword)}
-                      className="text-slate-400 hover:text-slate-600 focus:outline-none"
+                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none transition-colors"
                     >
                       {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -743,7 +744,7 @@ export default function AuthWorkflow({
                 </div>
 
                 {/* Confirm Password Block */}
-                <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl relative">
+                <div className="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl relative transition-colors">
                   <label className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                     Confirm Password
                   </label>
@@ -754,12 +755,12 @@ export default function AuthWorkflow({
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="Confirm your password"
-                      className="w-full bg-transparent border-none outline-none text-slate-800 text-sm font-medium placeholder:text-slate-400"
+                      className="w-full bg-transparent border-none outline-none text-slate-800 dark:text-slate-100 text-sm font-medium placeholder:text-slate-400"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="text-slate-400 hover:text-slate-600 focus:outline-none"
+                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none transition-colors"
                     >
                       {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -776,12 +777,12 @@ export default function AuthWorkflow({
               </form>
 
               {/* Back to Sign In option */}
-              <div className="text-center text-sm text-slate-500 mt-6 font-normal">
+              <div className="text-center text-sm text-slate-500 dark:text-slate-400 mt-6 font-normal">
                 Back to{" "}
                 <button
                   type="button"
                   onClick={() => setScreen("signin")}
-                  className="text-[#FF4D4D] font-bold hover:underline"
+                  className="text-[#FF4D4D] font-bold hover:underline cursor-pointer"
                 >
                   Sign In
                 </button>
@@ -801,23 +802,23 @@ export default function AuthWorkflow({
             >
               {/* Header */}
               <div className="flex items-center justify-between py-4">
-                <button className="p-1 text-slate-600 hover:text-slate-800 cursor-pointer">
+                <button className="p-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <LayoutGrid className="w-5 h-5" />
                 </button>
                 <span className="text-[#FF4D4D] font-extrabold text-lg font-display">
                   WesAiChat
                 </span>
-                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 cursor-pointer">
+                <button onClick={onClose} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer transition-colors">
                   <AlertCircle className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Title */}
               <div className="my-4 text-center">
-                <h2 className="text-[28px] font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2 font-display">
+                <h2 className="text-[28px] font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center justify-center gap-2 font-display">
                   Password Updated 🔐
                 </h2>
-                <p className="text-slate-400 text-sm mt-2 px-4 leading-relaxed">
+                <p className="text-slate-400 dark:text-slate-400 text-sm mt-2 px-4 leading-relaxed">
                   Your password has been changed successfully. You can now sign in with your new one
                 </p>
               </div>
@@ -851,10 +852,10 @@ export default function AuthWorkflow({
         </AnimatePresence>
 
         {/* Footer sticky legal links precisely aligned */}
-        <div className="text-center text-xs text-slate-400 mt-8 font-medium">
-          <a href="#" className="hover:text-slate-600 transition-colors">Terms of use</a>
-          <span className="mx-2 text-slate-200">|</span>
-          <a href="#" className="hover:text-slate-600 transition-colors">Privacy Policy</a>
+        <div className="text-center text-xs text-slate-400 dark:text-slate-500 mt-8 font-medium">
+          <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Terms of use</a>
+          <span className="mx-2 text-slate-200 dark:text-slate-800">|</span>
+          <a href="#" className="hover:text-slate-600 dark:hover:text-slate-300 transition-colors">Privacy Policy</a>
         </div>
 
       </div>
