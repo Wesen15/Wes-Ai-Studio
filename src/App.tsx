@@ -462,43 +462,55 @@ export default function App() {
 
   const activeSession = sessions.find((s) => s.id === activeSessionId) || null;
 
+  const isAndroidWebView = typeof navigator !== 'undefined' && (
+    /wv/i.test(navigator.userAgent) || 
+    /Android.*Version\/[0-9.]+/i.test(navigator.userAgent)
+  );
+
   if (showOnboarding) {
     return <OnboardingScreen onComplete={handleOnboardingComplete} />;
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden flex flex-col flex-1 h-full w-full sm:items-center sm:justify-center bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 p-0 sm:p-4 md:p-6" id="app-universe">
+    <div 
+      className={isAndroidWebView ? "fixed inset-0 overflow-hidden flex flex-col w-full h-full bg-white dark:bg-slate-950" : "fixed inset-0 overflow-hidden flex flex-col flex-1 h-full w-full sm:items-center sm:justify-center bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 p-0 sm:p-4 md:p-6"} 
+      id="app-universe"
+    >
       {/* Centered Android Phone Mockup Wrapper */}
       <div 
-        className="w-full h-full flex-1 sm:flex-initial sm:max-w-[412px] sm:max-h-[846px] sm:aspect-[9/18.5] sm:rounded-[44px] sm:border-[10px] sm:border-slate-800 sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] sm:relative sm:overflow-hidden bg-white dark:bg-slate-950 flex flex-col transition-colors duration-300" 
+        className={isAndroidWebView ? "w-full h-full flex flex-col relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-300" : "w-full h-full flex-1 sm:flex-initial sm:max-w-[412px] sm:max-h-[846px] sm:aspect-[9/18.5] sm:rounded-[44px] sm:border-[10px] sm:border-slate-800 sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] sm:relative sm:overflow-hidden bg-white dark:bg-slate-950 flex flex-col transition-colors duration-300"} 
         id="phone-device-frame"
       >
         {/* PHYSICAL CAMERA NOTCH / PUNCH HOLE (Only on desktop simulator layout) */}
-        <div className="hidden sm:block absolute top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border border-slate-700/40 z-50 flex items-center justify-center">
-          <div className="w-1.5 h-1.5 rounded-full bg-indigo-900/80"></div>
-        </div>
+        {!isAndroidWebView && (
+          <div className="hidden sm:block absolute top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-slate-900 border border-slate-700/40 z-50 flex items-center justify-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-indigo-900/80"></div>
+          </div>
+        )}
 
         {/* ANDROID STATUS BAR (high-fidelity mockup) */}
-        <div className="w-full h-7 bg-white dark:bg-slate-900 border-b border-slate-50 dark:border-slate-800/80 flex items-center justify-between px-6 text-xs font-bold text-slate-700 dark:text-slate-300 select-none shrink-0 z-30 transition-colors duration-300" id="android-status-bar">
-          <span className="font-sans font-semibold tracking-tight">{statusBarTime}</span>
-          <div className="flex items-center gap-1.5">
-            {/* Small dynamic status indicators */}
-            <svg className="w-3.5 h-3.5 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
-              <title>LTE Signal</title>
-              <path d="M2 22h20V2z"/>
-            </svg>
-            <svg className="w-3.5 h-3.5 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
-              <title>Wifi Connected</title>
-              <path d="M12 21l-12-18h24z"/>
-            </svg>
-            <div className="flex items-center gap-0.5" title="Battery 84%">
-              <span className="text-[9px] font-mono font-extrabold mr-0.5">84%</span>
-              <svg className="w-4 h-4 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
-                <path d="M17 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm1 9h-1V9h1v5z"/>
+        {!isAndroidWebView && (
+          <div className="w-full h-7 bg-white dark:bg-slate-900 border-b border-slate-50 dark:border-slate-800/80 flex items-center justify-between px-6 text-xs font-bold text-slate-700 dark:text-slate-300 select-none shrink-0 z-30 transition-colors duration-300" id="android-status-bar">
+            <span className="font-sans font-semibold tracking-tight">{statusBarTime}</span>
+            <div className="flex items-center gap-1.5">
+              {/* Small dynamic status indicators */}
+              <svg className="w-3.5 h-3.5 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
+                <title>LTE Signal</title>
+                <path d="M2 22h20V2z"/>
               </svg>
+              <svg className="w-3.5 h-3.5 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
+                <title>Wifi Connected</title>
+                <path d="M12 21l-12-18h24z"/>
+              </svg>
+              <div className="flex items-center gap-0.5" title="Battery 84%">
+                <span className="text-[9px] font-mono font-extrabold mr-0.5">84%</span>
+                <svg className="w-4 h-4 fill-slate-700 dark:fill-slate-300 transition-colors duration-300" viewBox="0 0 24 24">
+                  <path d="M17 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm1 9h-1V9h1v5z"/>
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* CORE APPLICATION BODY */}
         <div className="flex-1 relative flex flex-col overflow-hidden w-full bg-white dark:bg-slate-950 transition-colors duration-300" id="android-app-viewport">
@@ -556,9 +568,11 @@ export default function App() {
         </div>
 
         {/* ANDROID BOTTOM NAVIGATION GESTURE PILL BAR */}
-        <div className="w-full h-6 bg-white flex items-center justify-center select-none shrink-0 border-t border-slate-50 z-30" id="android-gesture-navigation">
-          <div className="w-24 h-1 bg-slate-400 rounded-full opacity-60 hover:opacity-80 transition-opacity"></div>
-        </div>
+        {!isAndroidWebView && (
+          <div className="w-full h-6 bg-white flex items-center justify-center select-none shrink-0 border-t border-slate-50 z-30" id="android-gesture-navigation">
+            <div className="w-24 h-1 bg-slate-400 rounded-full opacity-60 hover:opacity-80 transition-opacity"></div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -16,35 +16,34 @@ export default function SettingsModal({
   settings,
   onSaveSettings,
 }: SettingsModalProps) {
-  if (!isOpen) return null;
-
   // Default to light if not specified
   const currentTheme = settings.theme || "light";
 
   return (
     <AnimatePresence>
-      <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          className="w-full max-w-md max-h-[82vh] flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100"
-          id="settings-modal"
-        >
-          {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
-            <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
-              <Settings className="w-5 h-5 text-[#FF4D4D] animate-spin-slow" />
-              <h2 className="text-base font-extrabold tracking-tight font-display text-slate-900 dark:text-white">Preferences</h2>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="w-full max-w-md max-h-[82vh] flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-hidden text-slate-800 dark:text-slate-100"
+            id="settings-modal"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
+              <div className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
+                <Settings className="w-5 h-5 text-[#FF4D4D] animate-spin-slow" />
+                <h2 className="text-base font-extrabold tracking-tight font-display text-slate-900 dark:text-white">Preferences</h2>
+              </div>
+              <button
+                onClick={onClose}
+                className="p-1 text-slate-400 transition-colors rounded-lg hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                id="close-settings-btn"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
-            <button
-              onClick={onClose}
-              className="p-1 text-slate-400 transition-colors rounded-lg hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
-              id="close-settings-btn"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
 
           {/* Body */}
           <div className="p-6 space-y-5 overflow-y-auto flex-1">
@@ -214,6 +213,7 @@ export default function SettingsModal({
           </div>
         </motion.div>
       </div>
+      )}
     </AnimatePresence>
   );
 }
