@@ -320,9 +320,9 @@ export default function Sidebar({
   );
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpenMobile && (
-        <div className="absolute inset-0 z-40 flex" id="mobile-sidebar-root">
+        <div key="mobile-sidebar-container" className="absolute inset-0 z-40 flex" id="mobile-sidebar-root">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
