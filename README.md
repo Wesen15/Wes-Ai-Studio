@@ -154,7 +154,17 @@ Wes-Ai-Studio/
 
 ## 📸 Screenshots
 
-> _Coming soon — the app features a beautiful phone mockup UI on desktop, aurora background animations, and a premium dark theme._
+<p align="center">
+  <img src="screenshots/screenshot_chat.png" width="30%" alt="Chat Screen" />
+  &nbsp;&nbsp;
+  <img src="screenshots/screenshot_sidebar.png" width="30%" alt="AI Assistants Sidebar" />
+  &nbsp;&nbsp;
+  <img src="screenshots/screenshot_settings.png" width="30%" alt="Settings Screen" />
+</p>
+
+<p align="center">
+  <em>Chat Screen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AI Assistants Sidebar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings Screen</em>
+</p>
 
 ---
 
