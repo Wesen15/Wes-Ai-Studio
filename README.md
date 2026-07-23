@@ -155,15 +155,19 @@ Wes-Ai-Studio/
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/screenshot_chat.png" width="30%" alt="Chat Screen" />
-  &nbsp;&nbsp;
-  <img src="screenshots/screenshot_sidebar.png" width="30%" alt="AI Assistants Sidebar" />
-  &nbsp;&nbsp;
-  <img src="screenshots/screenshot_settings.png" width="30%" alt="Settings Screen" />
+  <img src="screenshots/home.png" width="18%" alt="Home — AI Assistant Cards" />
+  &nbsp;
+  <img src="screenshots/chat.png" width="18%" alt="Chat with Ava" />
+  &nbsp;
+  <img src="screenshots/sidebar.png" width="18%" alt="Threads Sidebar" />
+  &nbsp;
+  <img src="screenshots/settings.png" width="18%" alt="AI Provider Settings" />
+  &nbsp;
+  <img src="screenshots/wifi_scanner.png" width="18%" alt="Wi-Fi LLM Scanner" />
 </p>
 
 <p align="center">
-  <em>Chat Screen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AI Assistants Sidebar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings Screen</em>
+  <sub>🏠 Home &nbsp;&nbsp; 💬 Chat &nbsp;&nbsp; 📋 Threads &nbsp;&nbsp; ⚙️ Settings &nbsp;&nbsp; 📡 Wi-Fi Scanner</sub>
 </p>
 
 ---
