@@ -13,6 +13,7 @@ android/.idea/
 android/local.properties
 android/app/build/
 android/build/
+android/app/release/
 android/*.hprof
 
 # Keep releases folder (APKs)
